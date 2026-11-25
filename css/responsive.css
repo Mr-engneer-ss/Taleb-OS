@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════
+   STUDENT OS — التجاوب (موبايل أولًا)
+   الموبايل: الأساس | تابلت ≥ 720px | حاسوب ≥ 1024px
+   ═══════════════════════════════════════════ */
+
+/* شاشات صغيرة جدًا */
+@media (max-width: 380px) {
+  .main { padding-inline: 10px; }
+  .shortcuts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero h2 { font-size: 1.3rem; }
+  .btn { padding: 0 14px; }
+}
+
+/* على الموبايل: بطاقات الأسبوع كقائمة عمودية */
+@media (max-width: 719px) {
+  .grid-2, .grid-3 { grid-template-columns: minmax(0, 1fr); }
+  .grid-2.keep-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .week-grid { grid-template-columns: minmax(0, 1fr); }
+  .week-col { min-height: 0; }
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .topbar .conn:not(.is-offline) span { display: none; } /* متصل: نقطة فقط. غير متصل: النص يظهر بوضوح */
+  .topbar .conn:not(.is-offline) { padding: 0 9px; }
+  .page-title { font-size: 1.3rem; }
+  .brand-top-hide { display: none; }
+  .lab-split { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* تابلت */
+@media (min-width: 720px) {
+  .main { padding: 24px 24px calc(var(--nav-h) + var(--safe-b) + 28px); }
+  .topbar { padding-inline: 24px; }
+  .shortcuts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .chips-scroll { margin-inline: 0; padding-inline: 0; flex-wrap: wrap; }
+  dialog.modal { margin: auto; max-width: 600px; }
+  dialog.modal.modal-lg { max-width: 860px; }
+  dialog.modal.modal-sm { max-width: 440px; }
+  .modal-card { border-radius: 24px; border-bottom: 1px solid var(--border-strong); max-height: 88dvh; }
+  #toasts { bottom: 24px; }
+  .lab-split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vbars { gap: 14px; }
+}
+
+/* حاسوب: قائمة جانبية بدل الشريط السفلي */
+@media (min-width: 1024px) {
+  #app {
+    grid-template-columns: var(--side-w) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+  .sidebar { display: flex; grid-row: 1 / span 2; grid-column: 1; }
+  .topbar { grid-column: 2; grid-row: 1; padding-inline: 32px; }
+  .main { grid-column: 2; grid-row: 2; padding: 28px 32px 48px; }
+  .bottom-nav { display: none; }
+  .topbar-brand .topbar-logo { display: none; }
+  .composer { bottom: 16px; }
+  .page-title { font-size: 1.6rem; }
+  .grid-dash { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/* تخطيطات لوحة التحكم */
+.grid-dash { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) {
+  .grid-dash { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-dash .span-2 { grid-column: span 2; }
+}
+@media (min-width: 1024px) {
+  .grid-dash { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .grid-dash .c-4 { grid-column: span 4; }
+  .grid-dash .c-5 { grid-column: span 5; }
+  .grid-dash .c-6 { grid-column: span 6; }
+  .grid-dash .c-7 { grid-column: span 7; }
+  .grid-dash .c-8 { grid-column: span 8; }
+  .grid-dash .c-12 { grid-column: span 12; }
+}
+
+.stats-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 1024px) { .stats-row { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* شاشات عريضة جدًا */
+@media (min-width: 1440px) {
+  .page { max-width: 1240px; }
+}
+
+/* شاشات منخفضة الارتفاع (هاتف أفقي) */
+@media (max-height: 480px) and (orientation: landscape) {
+  .timer-ring { width: 200px; }
+  .bottom-nav { --nav-h: 54px; }
+  .bn-item span { display: none; }
+}
+
+/* اللمس: أهداف أكبر */
+@media (pointer: coarse) {
+  .chip { min-height: 38px; }
+  .tab { min-height: 42px; }
+}
